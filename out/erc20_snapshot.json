@@ -1,0 +1,41 @@
+{
+  "fields": [
+    "address",
+    "balance",
+    "raw_balance",
+    "token_symbol",
+    "token_contract",
+    "block_number"
+  ],
+  "rows": [
+    {
+      "address": "0x1111111111111111111111111111111111111111",
+      "balance": "125.5",
+      "block_number": "latest",
+      "raw_balance": "125500000000000000000",
+      "token_contract": "0x0000000000000000000000000000000000000001",
+      "token_symbol": "TEST"
+    },
+    {
+      "address": "0x2222222222222222222222222222222222222222",
+      "balance": "42",
+      "block_number": "latest",
+      "raw_balance": "42000000000000000000",
+      "token_contract": "0x0000000000000000000000000000000000000001",
+      "token_symbol": "TEST"
+    }
+  ],
+  "summary": {
+    "block": "latest",
+    "contract": "0x0000000000000000000000000000000000000001",
+    "network": {
+      "chain_id": 688689,
+      "explorer": "https://atlantic.pharosscan.xyz/",
+      "name": "Pharos Atlantic Testnet",
+      "native_token": "PHRS",
+      "rpc_url": "https://atlantic.dplabs-internal.com"
+    },
+    "row_count": 2,
+    "snapshot_type": "erc20-holders"
+  }
+}
