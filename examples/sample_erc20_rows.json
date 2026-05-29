@@ -1,1 +1,19 @@
+[
+  {
+    "address": "0x1111111111111111111111111111111111111111",
+    "balance": "125.5",
+    "raw_balance": "125500000000000000000",
+    "token_symbol": "TEST",
+    "token_contract": "0x0000000000000000000000000000000000000001",
+    "block_number": "latest"
+  },
+  {
+    "address": "0x2222222222222222222222222222222222222222",
+    "balance": "42",
+    "raw_balance": "42000000000000000000",
+    "token_symbol": "TEST",
+    "token_contract": "0x0000000000000000000000000000000000000001",
+    "block_number": "latest"
+  }
+]
 
