@@ -9,6 +9,12 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from snapshot_plan import validate
+from live_erc20_snapshot import (
+    decode_abi_string,
+    format_units,
+    pad_address,
+    topic_to_address,
+)
 
 
 def base_args(**overrides):
@@ -51,6 +57,21 @@ class SnapshotPlanTests(unittest.TestCase):
         self.assertEqual(plan["errors"], [])
         self.assertEqual(plan["estimated_query_size"], "large")
         self.assertTrue(any("paginated" in warning for warning in plan["warnings"]))
+
+    def test_live_snapshot_helpers(self):
+        self.assertEqual(
+            pad_address("0x1111111111111111111111111111111111111111"),
+            "0000000000000000000000001111111111111111111111111111111111111111",
+        )
+        self.assertEqual(
+            topic_to_address("0x0000000000000000000000002222222222222222222222222222222222222222"),
+            "0x2222222222222222222222222222222222222222",
+        )
+        self.assertEqual(format_units(125500000, 6), "125.5")
+
+    def test_decode_abi_string(self):
+        encoded = "0x" + f"{32:064x}" + f"{4:064x}" + "55534443".ljust(64, "0")
+        self.assertEqual(decode_abi_string(encoded), "USDC")
 
 
 if __name__ == "__main__":
