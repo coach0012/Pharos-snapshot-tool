@@ -17,10 +17,29 @@ This tool helps AI agents safely prepare and export public onchain snapshots wit
 
 No package install is required for planning or CSV/JSON/XLSX export. The XLSX writer uses only Python standard libraries.
 
+For Agent Center style installation, see:
+
+```text
+AGENT_CENTER_GUIDE.md
+```
+
+For Agent Center terminal prompt examples, see:
+
+```text
+TERMINAL_PROMPTS.md
+```
+
+For a test-first video demo script, see:
+
+```text
+DEMO_TEST_FIRST.md
+```
+
 ```bash
 python scripts/snapshot_plan.py --help
 python scripts/export_snapshot.py --help
 python scripts/rpc_probe.py --help
+python scripts/live_erc20_snapshot.py --help
 ```
 
 ## Usage
@@ -43,6 +62,23 @@ Confirm whether a contract has bytecode:
 python scripts/rpc_probe.py --contract 0x0000000000000000000000000000000000000001
 ```
 
+Take a real ERC-20 holder snapshot from Pharos RPC:
+
+```bash
+python scripts/live_erc20_snapshot.py --contract 0xE0BE08c77f415F577A1B3A9aD7a1Df1479564ec8 --from-block 23020000 --to-block 23022313 --min-balance 0 --output out/usdc_real_snapshot --formats csv,json,xlsx
+```
+
+This live command:
+
+- checks the RPC chain ID is Pharos Atlantic Testnet
+- checks the contract has bytecode
+- scans ERC-20 `Transfer` logs
+- finds sender and receiver wallets
+- calls `balanceOf` for each wallet
+- exports real holder rows
+
+For a complete snapshot, use the token creation block or earliest known activity block as `--from-block`. For a quick demo, use a smaller fixed range like the command above.
+
 ## Supported Snapshot Types
 
 - `erc20-holders`
@@ -58,4 +94,6 @@ python scripts/rpc_probe.py --contract 0x000000000000000000000000000000000000000
 - Supported framework: Codex / Pharos Agent Center style skills
 - Dependencies: Python 3.10 or newer
 - Safety posture: read-only, no private keys, no signing, no transaction sending
-
+- Agent install guide: `AGENT_CENTER_GUIDE.md`
+- Terminal prompt guide: `TERMINAL_PROMPTS.md`
+- Test-first demo script: `DEMO_TEST_FIRST.md`
