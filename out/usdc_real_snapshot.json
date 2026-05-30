@@ -1,0 +1,56 @@
+{
+  "fields": [
+    "address",
+    "balance",
+    "raw_balance",
+    "token_symbol",
+    "token_contract",
+    "block_number",
+    "first_seen_block",
+    "last_seen_block",
+    "transfer_event_count"
+  ],
+  "rows": [
+    {
+      "address": "0x9727be8641859ea388f8ab6debb6b8252a86c469",
+      "balance": "19260.394702",
+      "block_number": 23022313,
+      "first_seen_block": 23020064,
+      "last_seen_block": 23021923,
+      "raw_balance": "19260394702",
+      "token_contract": "0xe0be08c77f415f577a1b3a9ad7a1df1479564ec8",
+      "token_symbol": "USDC",
+      "transfer_event_count": 7
+    },
+    {
+      "address": "0xab89e6f08cb23e441af5e5a275e334eb809ccd9e",
+      "balance": "11010.366177",
+      "block_number": 23022313,
+      "first_seen_block": 23020064,
+      "last_seen_block": 23021923,
+      "raw_balance": "11010366177",
+      "token_contract": "0xe0be08c77f415f577a1b3a9ad7a1df1479564ec8",
+      "token_symbol": "USDC",
+      "transfer_event_count": 7
+    }
+  ],
+  "summary": {
+    "block": "23022313",
+    "candidate_wallet_count": 2,
+    "contract": "0xe0be08c77f415f577a1b3a9ad7a1df1479564ec8",
+    "holder_count": 2,
+    "network": {
+      "chain_id": 688689,
+      "explorer": "https://atlantic.pharosscan.xyz/",
+      "name": "Pharos Atlantic Testnet",
+      "native_token": "PHRS",
+      "rpc_url": "https://atlantic.dplabs-internal.com"
+    },
+    "row_count": 2,
+    "snapshot_type": "erc20-holders",
+    "token_decimals": 6,
+    "token_symbol": "USDC",
+    "total_balance": "30270.760879",
+    "total_raw_balance": "30270760879"
+  }
+}
