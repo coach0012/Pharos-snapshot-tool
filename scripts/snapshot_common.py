@@ -24,6 +24,7 @@ SNAPSHOT_TYPES = {
 
 OUTPUT_FORMATS = {"csv", "json", "xlsx"}
 ADDRESS_RE = re.compile(r"^0x[a-fA-F0-9]{40}$")
+ZERO_ADDRESS = "0x0000000000000000000000000000000000000000"
 
 
 @dataclass
@@ -35,6 +36,20 @@ class ValidationResult:
 
 def is_address(value: str) -> bool:
     return bool(ADDRESS_RE.fullmatch(value or ""))
+
+
+def normalize_address(value: str) -> str:
+    if not is_address(value):
+        raise ValueError(f"invalid address: {value}")
+    return "0x" + value[2:].lower()
+
+
+def block_to_rpc(value: int | str) -> str:
+    if value == "latest":
+        return "latest"
+    if not isinstance(value, int) or value < 0:
+        raise ValueError(f"invalid block value: {value}")
+    return hex(value)
 
 
 def split_csv(value: str | None) -> list[str]:
@@ -79,4 +94,3 @@ def as_jsonable(value: Any) -> Any:
     if isinstance(value, set):
         return sorted(value)
     return value
-
